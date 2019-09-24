@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1567465451 source:c:\users\alumno\desktop\funciones\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Operaciones.h"
+
+1567465404 source:c:\users\alumno\desktop\funciones\operaciones.c
+	"Operaciones.h"
+
+1567465654 c:\users\alumno\desktop\funciones\operaciones.h
+
+1567470160 source:c:\users\alumno\desktop\funciones\input.c
+	"Input.h"
+
+1567470160 c:\users\alumno\desktop\funciones\input.h
+
+1567473158 source:x:\### lab1\funciones\input.c
+	"Input.h"
+
+1567470160 x:\### lab1\funciones\input.h
+
+1567473158 source:x:\### lab1\funciones\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Operaciones.h"
+	"Input.h"
+
+1567465654 x:\### lab1\funciones\operaciones.h
+
+1567465404 source:x:\### lab1\funciones\operaciones.c
+	"Operaciones.h"
+
