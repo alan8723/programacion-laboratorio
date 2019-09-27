@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1569348844 source:c:\users\54112\desktop\programacion-laboratorio\librerias\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
+1569348798 c:\users\54112\desktop\programacion-laboratorio\librerias\utn.h
+	<stdio.h>
+
