@@ -5,6 +5,7 @@
 
 #define TAM 10
 #define TAMC 3
+#define TAMCOM 5
 
 typedef struct
 {
@@ -12,6 +13,23 @@ typedef struct
     int mes;
     int anio;
 } eFecha;
+
+typedef struct{
+    int legajoAlmuerzo;
+    int idComida;
+    int idAlmuerzo;
+    eFecha fecha;
+    int isEmpy;
+}eAlmuerzo;
+
+typedef struct{
+
+    int idComida;
+    char desc[20];
+    int precio;
+}eComida;
+
+
 
 typedef struct
 {
@@ -60,12 +78,19 @@ int main()
     eCarrera carreras[TAMC]={{1000,"TUP"},{1001,"TUSI"},{1002,"LIC"}};
     eAlumno lista[TAM];
     char salir = 'n';
+    eAlmuerzo almuersos[TAM];
+    eComida comidas[TAMCOM]= {{5000,"Bife", 250},{5001,"Fideos", 180},{5002,"Pizza", 200}, {5003,"Arroz", 160},{5004,"Milanesa", 220}};
+
 
     inicializarAlumnos( lista, TAM);
 
     legajo = legajo + hardcodearAlumnos(lista, TAM, 6);
 
-    do
+    mostrarComidas(comidas, TAMCOM);
+
+
+
+    /*do
     {
         switch( menu())
         {
@@ -112,7 +137,7 @@ int main()
         }
         system("pause");
     }
-    while(salir == 'n');
+    while(salir == 'n');*/
 
     return 0;
 }
@@ -180,6 +205,7 @@ void MostrarInformes(eAlumno alumnos[], int tam, eCarrera carreras[], int tamC){
                 break;
             case 3:
                 printf("seleccionaste opcion 3 \n");
+                mostrarCantidadAlumnosCarrera(carreras, tamC, alumnos, tam);
                 break;
             case 4:
                 printf("seleccionaste opcion 4 \n");
@@ -586,12 +612,12 @@ void mostrarAlumnosDeTodasLasCarreras(eCarrera carreras[], int tamC, eAlumno alu
     }
 }
 
-int cantidadAlumnosCarrera(eAlumno alumnos[], int tam, eCarrera carreras[], int tamC){
+int cantidadAlumnosCarrera(eAlumno alumnos[], int tam, eCarrera carreras[], int tamC, int idCarrera){
 
     int cantidad;
     for(int i=0; i < tam; i++)
     {
-        if (alumno[i].idCarrera == idCarrera && alumno[i].isEmpty == 0){
+        if (alumnos[i].idCarrera == idCarrera && alumnos[i].isEmpty == 0){
 
             cantidad++;
         }
@@ -606,6 +632,99 @@ void mostrarCantidadAlumnosCarrera(eCarrera carreras[], int tamC, eAlumno alumno
     for(int i = 0; i < tamC; i++){
         cargarDescCarrera(carreras[i].id, carreras, tamC, desc);
         printf("%s \n\n", desc);
-
+           // cantidadAlumnosCarrera(alumnos, tam, )
         }
+}
+
+void mostrarComida(eComida comidas){
+    printf("%d,  %s,  %d \n\n", comidas.idComida, comidas.desc, comidas.precio);
+}
+
+void mostrarComidas(eComida comidas[], int tam){
+
+
+    for(int i=0; i < tam; i++){
+        mostrarComida( comidas[i]);
+    }
+    printf("\n");
+}
+
+void inicializarAlmuerzo(eAlmuerzo vec[], int tam)
+{
+    for(int i = 0; i < tam; i++)
+    {
+        vec[i].isEmpy = 1;
+    }
+}
+
+int altaAlmuerzo(eAlmuerzo almuerzos[], int tamA, int id, eAlumnos vec[], int tam, eComida comidas, int tamC)
+{
+    int todoOk = 0;
+    int indice;
+    int legajoAlumno;
+    int idComida;
+    int idAlmuerzo;
+    eFecha fecha;
+
+    system("cls");
+
+    printf("*****Alta Almuerzo*****\n\n");
+
+    indice = buscarLibre(almuerzos, tamA);
+
+    if( indice == -1)
+    {
+        printf("\nSistema completo\n\n");
+    }
+    else
+    {
+        printf("Ingrce legajo alumno: ");
+        scanf("%d", &legajoAlumno);
+
+        printf("Ingrece id comida: ");
+        sacnf("%d", idComida);
+
+        printf("Ingrese fecha ingreso: ");
+        scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
+
+        vec[indice] = newAlmuerzo(almuerzos.legajoAlmuerzo, comidas.idComida, )
+        todoOk = 1;
+        printf("Alta exitosa!!\n\n");
+    }
+
+    return todoOk;
+}
+
+int buscarLibreAlmuerzo(eAlmuerzo vec[], int tam)
+{
+    int indice = -1;
+
+    for(int i=0; i < tam; i++)
+    {
+        if( vec[i].isEmpty == 1 )
+        {
+            indice = i;
+            break;
+        }
+    }
+    return indice;
+}
+
+eAlmuerzo newAlmuerzo(
+    int legAlumno,
+    int idComida,
+    int idAlmuerzo,
+    eFecha fecha,
+    int isEmpy,
+    )
+{
+
+    eAlumuerzo alm;
+    alm.legajoalumno = legAlumno;
+    alm.idComida = idComida;
+    alm.idAlmuerzo = idAlmuerzo;
+    alm.fechaIngreso = fecha;
+    alm.isEmpty = 0;
+
+    return alm;
 }
