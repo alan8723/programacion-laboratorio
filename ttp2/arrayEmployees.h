@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct{
     int id;
@@ -14,7 +15,7 @@ int menu();
 
 int initEmployees (Employee employees[], int len);
 
-int addEmployees(Employee employees[], int len, int id, char nombre[], char lastName, float salary, int sector);
+int addEmployees(Employee employees[], int len, int id, char nombre[], char lastName[], float salary, int sector);
 
 int findEmployeeById(Employee employees[], int len, int id);
 
@@ -24,9 +25,11 @@ int sortEmployees(Employee employees[], int len, int order);
 
 int printEmployees(Employee employees[], int length);
 
-int printEmpoyee(int id, char name[], char lastname[], float salary, int sector);
+int printEmpoyee(Employee employees);
 
 int seachFree(Employee employees[], int len);
+
+Employee newEmployee(int id, char name[], char lastName[], float salary, int sector);
 
 
 // menu de opciones
@@ -48,11 +51,11 @@ int menu(){
 
 
 int initEmployees (Employee employees[], int len){
-    int i = 0;
+
     int todoOK = -1;
     int flag = 1;
 
-    for(i < len; i++;){
+    for(int i = 0; i < len; i++){
          employees[i].isEmpty = 1;
          if (flag){
             flag = -1;
@@ -65,9 +68,8 @@ int initEmployees (Employee employees[], int len){
 
 int seachFree(Employee employees[], int len){
     int indice = -1;
-    int i = 0;
 
-    for (i < len; i++;){
+    for (int i = 0; i < len; i++){
         if(employees[i].isEmpty == 1){
            indice = i;
            break;
@@ -76,48 +78,63 @@ int seachFree(Employee employees[], int len){
     return indice;
 }
 
-int addEmployees(Employee employees[], int len, int id, char nombre[], char lastName, float salary, int sector){
+int addEmployees(Employee employees[], int len, int id, char name[], char lastName[], float salary, int sector){
     int indice;
     int todoOk = 0;
 
     indice = seachFree(employees, len);
 
-    if(indice !=-1){
+        if( indice == -1)
+    {
 
+        printf("\nSistema completo\n\n");
 
-        strcpy(employees[indice].name, nombre);
-
-        strcpy (employees[indice].lastName, lastName);
-
-        employees[indice].salary = salary;
-
-        employees[indice].sector = sector;
-
-        employees[indice].id = id;
-
-        employees[indice].isEmpty = 0;
-        todoOk = 1;
     }
-    else{
-        todoOk = -1;
+
+
+    else
+    {
+
+        employees[indice] = newEmployee(id, name, lastName, salary, sector);
+        todoOk = 1;
+        printf("Alta exitosa!!\n\n");
+
     }
 
     return todoOk;
 
 }
 
-int findEmployeeById(Employee employees[], int len, int id){
-    int i = 0;
-    int indise = -1;
+Employee newEmployee(int id, char name[], char lastName[], float salary, int sector){
 
-    for(i < len; i++;){
-        if (employees[i].id == id && employees[i].isEmpty == 1){
-            indise = i;
+
+    Employee em;
+    em.id = id;
+    strcpy(em.name, name);
+    strcpy(em.lastName, lastName);
+    em.salary = salary;
+
+    em.sector = sector;
+    em.isEmpty = 0;
+
+
+
+    return em;
+
+}
+
+int findEmployeeById(Employee employees[], int len, int id){
+
+    int indice = -1;
+
+    for(int i = 0; i < len; i++){
+        if (employees[i].id == id && employees[i].isEmpty == 0){
+            indice = i;
             break;
         }
     }
 
-    return indise;
+    return indice;
 }
 
 int removeEmployee(Employee employees[], int len, int id){
@@ -126,10 +143,13 @@ int removeEmployee(Employee employees[], int len, int id){
 
     baja = findEmployeeById(employees, len, id);
 
+
+
     if(employees[baja].id == id){
-        employees[baja].isEmpty == -1;
+        employees[baja].isEmpty = -1;
         todoOk = 0;
     }
+
     return todoOk;
 }
 
@@ -210,16 +230,72 @@ int sortEmployees(Employee employees[], int len, int order)
 }
 
 int printEmployees(Employee employees[], int length){
-    int i = 0;
-    int todoOk;
 
-    for(i < length; i++;){
-        if(employees[i].isEmpty == 1){
-            printEmpoyee(employees[i].id, employees[i].name, employees[i].lastName, employees[i].salary, employees[i].sector);
+    printf("id  --  nombre  --  apellido  --  salario  --  sector  \n\n");
+
+    for(int i = 0; i < length; i++){
+        if(employees[i].isEmpty == 0){
+            printEmpoyee(employees[i]);
         }
     }
 }
 
-int printEmpoyee(int id, char name[], char lastname[], float salary, int sector){
-    printf("%s  \t\t\n\n  %s  \t\t\n\n  %f  \t\t\n\n  %d  \t\t\n\n  ", id, name, lastname, salary, sector);
+int printEmpoyee(Employee employees){
+    printf("%d  --  %s  --  %s  --  %f  --  %d  \t\n\n ", employees.id, employees.name, employees.lastName, employees.salary, employees.sector);
+}
+
+int modificarEmployee(Employee employees[], int len){
+
+    int todoOk = 0;
+    int id;
+    int indice;
+    int opcion;
+    system("cls");
+    printf("***** Modificar Empleado *****\n\n");
+    printf("Ingrese id: ");
+    scanf("%d", &id);
+
+    indice = findEmployeeById(employees, len, id);
+
+        if( indice == -1)
+    {
+        printf("No existe un Empledo con ese id\n\n");
+
+    }
+    else
+    {
+
+        printEmpoyee(employees[indice]);
+
+        printf("1- Modificar nombre\n");
+        printf("2- Modificar apellido\n");
+        printf("3- Modificar salario");
+        printf("4- Modificar sector");
+        printf("5- Salir\n\n");
+        printf("Ingrese opcion: ");
+        scanf("%d", &opcion);
+        switch(opcion)
+        {
+        case 1:
+            printf("Ingrese nuevo nombre: ");
+            scanf("%s", &employees[indice].name);
+            break;
+
+        case 2:
+            printf("Ingrese nuevo apellido: ");
+            scanf("%s", &employees[indice].lastName);
+            break;
+        case 3:
+            printf("Ingrese nuevo salario");
+            scanf("%f", &employees[indice].salary);
+            break;
+        case 4:
+            printf("Ingrese nuevo sector");
+            scanf("%d", &employees[indice].sector);
+            break;
+        case 5:
+            printf("se a canselado la modificacion");
+        }
+    }
+
 }
