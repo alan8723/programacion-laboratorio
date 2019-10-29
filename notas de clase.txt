@@ -1,41 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
+28/10/19 						ARCHIVO.
 
-int main()
-{
-    char opcion;
-    do
-    {
-        printf("1. ALTA Cliente\n");
-        printf("2. BAJA Cliente\n");
-        printf("3. MODIFICAR Cliente\n");
-        printf("4. MOSTRAR Clientes\n");
-        printf("5. SALIR\n");
-        printf("Elija una opcion: ");
-        fflush(stdin);
-        scanf("%c", &opcion);
-        switch(opcion)
-        {
-            case '1':
-                printf("Estoy dando de alta!!!\n");
-                break;
-            case '2':
-                printf("Estoy dando de baja!!!\n");
-                break;
-            case '3':
-                printf("Estoy modificando!!!\n");
-                break;
-            case '4':
-                printf("Estoy mostrando!!!\n");
-                break;
-            default:
-                printf("Opcion incorrecta!!!\n");
+.dat ó .bin (extencion de archivo binario).
+"D:\\" doble contra barra para no confundir con una salida de escape "\n".
 
-        }
-    system("pause");
-    system("cls");
-    }
-    while(opcion!='5');
+cerrar el archivo siempre.
 
-    return 0;
-}
+fwrite(archiovo, wb etc) 1er parametro escribe el archivo, 2do parametro como lo escribe
+fread(archiovo, wb etc) 1er parametro lee el archivo, 2do parametro como lo lee
+fgetz() lee cada linea del archivo
+
+w = escribir
+wb = escribir binario
+r = leer
+rb = leer binario
+a= escrivir al final (sin sobreescribir)
+ab = escribir al final con binario (sin sobreescribir)
+
+csv es un archivo de texto, donde los campos se separan con "," ó ";"
+
+
+(pagweb mockaroo)
