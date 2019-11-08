@@ -27,52 +27,45 @@ int main()
 
     LinkedList* listaAutos = ll_newLinkedList();
 
-    eAuto* auto1 = newAutoParam( 1231, "ford", 2009, 1000);
-    eAuto* auto2 = newAutoParam( 1234, "fiat", 2012, 1200);
-    eAuto* auto3 = newAutoParam( 1229, "peugeot", 2009, 900);
-    eAuto* auto4 = newAutoParam( 1242, "renaut", 2015, 800);
-    eAuto* auto5 = newAutoParam( 1232, "honda", 2009, 1100);
+    eAuto* auto1 = newAutoParam( 1000, "ford", 2009, 1000);
+    eAuto* auto2 = newAutoParam( 1001, "fiat", 2012, 1200);
+    eAuto* auto3 = newAutoParam( 1002, "peugeot", 2009, 900);
+    eAuto* auto4 = newAutoParam( 1003, "renaut", 2015, 800);
+    eAuto* auto5 = newAutoParam( 1004, "honda", 2009, 1100);
 
+    eAuto* auxAuto = newAuto();
 
-
-    if( ll_add(listaAutos, auto1) == 0)
-    {
-        printf("carga exitosa \n");
-    }
-    else
-    {
-
-        printf("falla en la carga \n");
-    }
-
+    ll_add(listaAutos, auto1);
     ll_add(listaAutos, auto2);
     ll_add(listaAutos, auto3);
     ll_add(listaAutos, auto4);
+    ll_add(listaAutos, auto5);
 
 
-    //printf("%p", auto2);
 
-    mostrarAuto((eAuto*) ll_get(listaAutos, 0));
-
-    if( ll_push(listaAutos, 2, auto5) == 0)
-    {
-        printf("carga exitosa \n");
-    }
-    else
-    {
-
-        printf("falla en la carga \n");
-    }
+    auxAuto = (eAuto*) ll_pop(listaAutos, auto2->id - 1000);
 
     mostrarAutosll(listaAutos);
 
+    auxAuto->modelo = 2019;
     printf("\n");
 
-    printf("%d\n", ll_len(listaAutos));
-
-    ll_sort(listaAutos, ordenarAutosId, 0);
+    ll_push(listaAutos, 1, auxAuto);
 
     mostrarAutosll(listaAutos);
+
+    //mostrarAuto((eAuto*) ll_get(listaAutos, 0));
+
+
+    //printf("\n");
+
+    //printf("%d\n", ll_len(listaAutos));
+
+    //ll_sort(listaAutos, ordenarAutosId, 0);
+
+    //mostrarAutosll(listaAutos);
+
+
 
     /*int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
@@ -85,6 +78,8 @@ int main()
         }
     }while(option != 10);
     return 0;*/
+
+
 }
 
 int mostrarAutosll(LinkedList* lista){

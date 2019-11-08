@@ -89,3 +89,39 @@
 
 1572911016 c:\users\alumno\desktop\tp3.1\win_64\autos.h
 
+1572988946 source:c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\autos.c
+	"autos.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1572988946 c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\autos.h
+
+1572988946 source:c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1572988946 c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\linkedlist.h
+
+1572988946 c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\employee.h
+
+1572988946 source:c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\employee.c
+
+1573231693 source:c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"autos.h"
+
+1572988946 c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\controller.h
+
+1572988946 source:c:\users\jhonatan\desktop\programacion-laboratorio\tp3.1\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+

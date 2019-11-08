@@ -47,7 +47,7 @@ int main()
     {
         printf("No se pudo conseguir memoria\n");
         system("pause");
-        exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);//break
     }
 
     f = fopen("listaAutos.csv", "r");
@@ -55,7 +55,7 @@ int main()
     {
         printf("No se pudo abrir el archivo\n");
         system("pause");
-        exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);//break
     }
 
     fscanf(f, "%[^,],%[^,],%[^,],%[^\n]\n", buffer[0], buffer[1], buffer[2], buffer[3]);
@@ -140,7 +140,19 @@ int main()
         }
     }
 
-fclose(f);
+fclose(f);if( nuevo != NULL)
+    {
+        if(
+            setIdAuto(nuevo, id)
+            && setModeloAuto(nuevo, modelo)
+            && setMarcaAuto(nuevo, marca)
+            && setPrecioAuto(nuevo, precio) == 0)
+        {
+            free(nuevo);
+            nuevo = NULL;
+        }
+    }
+    return nuevo;
 
 mostrarAutos(lista2, tam2);
 
