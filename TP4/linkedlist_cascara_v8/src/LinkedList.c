@@ -290,6 +290,12 @@ int ll_deleteLinkedList(LinkedList* this)
 {
     int returnAux = -1;
 
+    if(this != NULL){
+
+        free(this);
+        returnAux = 0;
+    }
+
     return returnAux;
 }
 
@@ -304,7 +310,17 @@ int ll_deleteLinkedList(LinkedList* this)
 int ll_indexOf(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    Node* nodo = NULL;
+    if(this != NULL){
+        for(int i = 0; i < ll_len(this); i++){
+            nodo = getNode(this, i);
 
+            if(nodo->pElement == pElement){
+                returnAux = i;
+            }
+
+        }
+    }
     return returnAux;
 }
 
@@ -319,7 +335,13 @@ int ll_indexOf(LinkedList* this, void* pElement)
 int ll_isEmpty(LinkedList* this)
 {
     int returnAux = -1;
-
+    if(this != NULL){
+        if(this->size == 0){
+            returnAux = 1;
+        }else{
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }
 
@@ -335,6 +357,11 @@ int ll_isEmpty(LinkedList* this)
 int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
+
+    if(this != NULL && index >= 0 && index <= ll_len(this)){
+        addNode(this, index, pElement);
+        returnAux = 0;
+    }
 
     return returnAux;
 }
