@@ -379,6 +379,11 @@ void* ll_pop(LinkedList* this,int index)
 {
     void* returnAux = NULL;
 
+    if(this != NULL && index < ll_len(this) && index >= 0){
+
+        returnAux = ll_get(this, index);
+        ll_remove(this, index);
+    }
     return returnAux;
 }
 
@@ -394,7 +399,13 @@ void* ll_pop(LinkedList* this,int index)
 int ll_contains(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-
+    if(this != NULL){
+        if(ll_indexOf(this, pElement) != -1){
+            returnAux = 1;
+        }else{
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }
 
@@ -410,6 +421,23 @@ int ll_contains(LinkedList* this, void* pElement)
 int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
+    void* aux;
+
+    if(this != NULL && this2 != NULL){
+
+        for(int i = 0; i <= ll_len(this2); i ++){
+
+            aux = ll_get(this2, i);
+            if(ll_contains(this, aux)){
+       printf("0 \n");
+       system("pause");
+                returnAux = 1;
+            }else if (ll_contains(this, aux) == 0){
+                returnAux = 0;
+                break;
+            }
+        }
+    }
 
     return returnAux;
 }
@@ -427,7 +455,17 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
+    void* aux = NULL;
 
+    if(this != NULL && from >= 0 && from < ll_len(this) && to > from && to <= ll_len(this)){
+       cloneArray = ll_newLinkedList();
+       for(int i = from; from < to; i++){
+       printf("0\n");
+       system("pause");
+        aux = ll_get(this, from);
+        addNode(cloneArray, from, aux);
+       }
+    }
     return cloneArray;
 }
 
