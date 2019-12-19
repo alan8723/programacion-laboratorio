@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1576799774 source:c:\users\alumno\desktop\parcial2\bicicleta.c
+	"bicicleta.h"
+	"linkedlist.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1576798080 c:\users\alumno\desktop\parcial2\bicicleta.h
+
+1576798892 source:c:\users\alumno\desktop\parcial2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"linkedlist.h"
+	"bicicleta.h"
+
+1576793124 source:c:\users\alumno\desktop\parcial2\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"linkedlist.h"
+
+1576793124 c:\users\alumno\desktop\parcial2\linkedlist.h
+
