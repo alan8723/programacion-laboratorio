@@ -160,7 +160,7 @@ int mostrarBicicletas(LinkedList* bicicletas)
         {
         int tam = ll_len(bicicletas);
 
-        for(int i=0; i < 30; i++){
+        for(int i=0; i < tam; i++){
 
             mostrarBici((eBicicleta*)ll_get(bicicletas, i));
 
@@ -186,4 +186,16 @@ float promedioVelocidad(LinkedList* bicis){
     return resultado;
 }
 
+int menu(){
 
+    int opcion;
+    printf("1) CARGAR ARCHIVO \n");
+    printf("2) IMPRIMIR LISTA \n");
+    printf("3) CALCULAR VELOCIDAD PROMEDIO\n");
+    printf("4) FILTRAR POR TIPO \n");
+    printf("5) MOSTRAR POSICIONES \n");
+    printf("6) SALIR \n");
+    scanf("%d", &opcion);
+
+    return opcion;
+}

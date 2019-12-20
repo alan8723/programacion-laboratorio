@@ -22,3 +22,27 @@
 
 1576793124 c:\users\alumno\desktop\parcial2\linkedlist.h
 
+1576800456 source:c:\users\alumno\desktop\programacion-laboratorio\parcial2\bicicleta.c
+	"bicicleta.h"
+	"linkedlist.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1576798080 c:\users\alumno\desktop\programacion-laboratorio\parcial2\bicicleta.h
+
+1576793124 c:\users\alumno\desktop\programacion-laboratorio\parcial2\linkedlist.h
+
+1576800859 source:c:\users\alumno\desktop\programacion-laboratorio\parcial2\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"linkedlist.h"
+	"bicicleta.h"
+
+1576800529 source:c:\users\alumno\desktop\programacion-laboratorio\parcial2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"linkedlist.h"
+	"bicicleta.h"
+

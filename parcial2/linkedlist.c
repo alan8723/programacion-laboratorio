@@ -516,10 +516,11 @@ int sortBicicletas(LinkedList* bicis){
         bici_1 = (eBicicleta*) ll_get(bicis, i);
         for(int j= i+1; j <ll_len(bicis); j++)
         {
+
             bici_2 = (eBicicleta*) ll_get(bicis, j);
-            if( strcmp(bici_1->tipo, bici_2->tipo) == 1)
+            if( strcmp(bici_1->tipo, bici_2->tipo))
             {
-                auxN = NULL;
+
                 Node_1 = getNode(bicis, i);
                 Node_2 = getNode(bicis, j);
 

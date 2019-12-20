@@ -12,17 +12,28 @@ int main()
 
     char path[50];
 
-    if(loadFromText("bicicletas_v3.csv", lista)){
-        printf("exito al cargar\n\n");
-    }else{
-        printf("error al cargar");
+    switch(menu()){
+        case 1:
+            printf("ingrese nombre de archivo: " &path);
+            loadFromText(path, lista);
+        break;
+        case 2:
+
+        break;
+        case 3:
+
+        break;
+        case 4:
+
+        break;
+        case 5:
+
+        break;
+        case 6:
+
+        break;
+
     }
-    mostrarBicicletas(lista);
-    promedioVelocidad(lista);
-
-    sortBicicletas(lista);
-
-    mostrarBicicletas(lista);
 
     return 0;
 }
